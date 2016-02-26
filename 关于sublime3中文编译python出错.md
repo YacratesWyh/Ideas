@@ -1,3 +1,4 @@
+#sublime3编译python含utf8会出错.
 print("你好")  
 这个编译运行会出现
 File "D:\Python\test5.py", line 2
