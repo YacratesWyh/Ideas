@@ -12,3 +12,5 @@ SyntaxError: Non-ASCII character '\xe4' in file D:\Python\test5.py on line 2, bu
 print("你好")  
 ```
 比较奇怪的是直接在python的IDLE编辑器上，不加那一句注释，也能正确运行。
+
+另外有一种方法是改tools下build system中的json。将python的build头里的code改为和cmd中一致。但是本机并非此问题。
