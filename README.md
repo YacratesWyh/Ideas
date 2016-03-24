@@ -1,4 +1,4 @@
 # Ideas
 
-This file is used for restoring ideas.
-They're gold! kira☆kira
+This file is used for ideas storage.
+Innovation is gold! kira☆kira
