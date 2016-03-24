@@ -1,3 +1,5 @@
+来源：http://www.jb51.net/article/51838.htm
+
 2. 安装 Package Control
 Sublime Package Control 可以说是必须安装的插件, 因为其方便的提供了安装/升级/删除 Sublime 插件的功能, 安装方法见Package Control 官网.
 安装完毕后, 就可以使用快捷键 ctrl+shift+p (Win, Linux) 或 cmd+shift+p (OS X), 其中以 Package Control: 开头的都是其相关命令, 最常用的可能就是 Package Control: Install Package, Package Control: Remove Package, Package Control: List Packages 这几个命令了.
