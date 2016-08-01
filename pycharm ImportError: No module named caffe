@@ -1,0 +1,69 @@
+ 当前位置：首页 » Python教程
+pycharm ImportError: No module named caffe
+2015-10-23 23:10 本站整理 浏览(286)
+
+pycharm ImportError: No module named caffe，有需要的朋友可以参考下。
+
+
+安装好caffe后，将caffe/python的路径添加到用户环境变量~/.bashrc中：
+
+
+
+
+export PYTHONPATH=/home/dumengnan/caffe-master/python
+
+
+
+然后输入sudo ldconfig确认，原以为可以开开心心地在python中调caffe了。
+
+
+看来还是图样图森破呀，在pycharm中import caffe时，一直出现下面的错误：
+
+
+
+
+Traceback (most recent call last):
+  File "/home/dumengnan/testcaffe/test.py", line 4, in <module>
+    import caffe
+ImportError: No module named caffe
+
+
+
+诡异的是在命令行窗口或者ipython notebook中import caffe时一切正常。虽然说ipython notebook是个优秀的工具，无奈一直用不习惯，没有pycharm顺手，否则直接在ipython notebook上写代码，可以跳过这个问题不管了。
+
+
+突然想到是不是pycharm和命令行调用的路径不同，然后在pycharm输出sys.path，得到下面的结果：
+
+
+
+
+['/home/dumengnan/testcaffe', '/home/dumengnan/testcaffe', '/home/dumengnan/anaconda/lib/python27.zip', '/home/dumengnan/anaconda/lib/python2.7', '/home/dumengnan/anaconda/lib/python2.7/plat-linux2', '/home/dumengnan/anaconda/lib/python2.7/lib-tk', '/home/dumengnan/anaconda/lib/python2.7/lib-old', '/home/dumengnan/anaconda/lib/python2.7/lib-dynload', '/home/dumengnan/anaconda/lib/python2.7/site-packages', '/home/dumengnan/anaconda/lib/python2.7/site-packages/Sphinx-1.3.1-py2.7.egg', '/home/dumengnan/anaconda/lib/python2.7/site-packages/cryptography-0.9.1-py2.7-linux-x86_64.egg', '/home/dumengnan/anaconda/lib/python2.7/site-packages/setuptools-17.1.1-py2.7.egg']
+
+
+
+在命令行中输出sys.path时，结果为：
+
+
+
+
+['', '/home/dumengnan/caffe-master/python', '/home/dumengnan/anaconda/lib/python27.zip', '/home/dumengnan/anaconda/lib/python2.7', '/home/dumengnan/anaconda/lib/python2.7/plat-linux2', '/home/dumengnan/anaconda/lib/python2.7/lib-tk', '/home/dumengnan/anaconda/lib/python2.7/lib-old', '/home/dumengnan/anaconda/lib/python2.7/lib-dynload', '/home/dumengnan/anaconda/lib/python2.7/site-packages', '/home/dumengnan/anaconda/lib/python2.7/site-packages/Sphinx-1.3.1-py2.7.egg', '/home/dumengnan/anaconda/lib/python2.7/site-packages/cryptography-0.9.1-py2.7-linux-x86_64.egg', '/home/dumengnan/anaconda/lib/python2.7/site-packages/setuptools-17.1.1-py2.7.egg']
+
+
+
+除了当前目录外，两个的路径正好相差/home/dumengnan/caffe-master/python，难道命令行和pycharm使用的解释器不同？
+
+
+在网上搜索了半天也没找到答案，只好在pycharm中使用临时的办法，每次新建程序时，都把caffe/python的路径添加到现在的程序中：
+
+
+
+
+import sys
+sys.path.append('/home/dumengnan/caffe-master/python')
+
+
+
+然后pycharm中报错不见了，方法虽然笨了点，至少可以暂时不理这个问题了。
+
+
+可能是当时看python时一直是一知半解的，很多地方没完全搞懂。先把这个问题记录下来，等后面详细学习python后看看能不能解决这个问题。
