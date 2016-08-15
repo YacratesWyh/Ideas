@@ -1,4 +1,4 @@
-
+http://blog.csdn.net/sunny2038/article/details/6926079
 
 最近在看Java，在编译写书上一个例子时，由于书上的代码只有一部分，于是就自己补了一个内部类。结果编译时出现：No enclosing instance of type E is accessible. Must qualify the allocation with an enclosing instance of type E(e.g.  x.new A() where x is an instance of E). E指代我写的那个内部类。
 
