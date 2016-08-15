@@ -1,0 +1,9 @@
+
+
+最近在看Java，在编译写书上一个例子时，由于书上的代码只有一部分，于是就自己补了一个内部类。结果编译时出现：No enclosing instance of type E is accessible. Must qualify the allocation with an enclosing instance of type E(e.g.  x.new A() where x is an instance of E). E指代我写的那个内部类。
+
+根据提示，没有可访问的内部类E的实例，必须分配一个合适的内部类E的实例（如x.new A()，x必须是E的实例。）看着这句提示，我就纳闷了，我已经用new实例化了这个类，为什么还不行呢。
+
+于是百度谷歌了一下相关资料。原来我写的内部类是动态的，也就是开头以public class开头。而主程序是public static class main。在Java中，类中的静态方法不能直接调用动态方法。只有将某个内部类修饰为静态类，然后才能够在静态类中调用该类的成员变量与成员方法。所以在不做其他变动的情况下，最简单的解决办法是将public class改为public static class.
+
+在这里记下这个问题，也方面遇到同样问题的朋友查阅。
